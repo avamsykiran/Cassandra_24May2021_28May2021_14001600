@@ -1,3 +1,5 @@
+https://github.com/avamsykiran/Cassandra_24May2021_28May2021_14001600.git
+======================================================================================
 
 Cassandra
 -----------------------------------------------
@@ -76,24 +78,12 @@ Cassandra
 
           Data Types
           -----------------------------------------
-          ascii
-          bigint
-          blob
-          boolean
-          counter
-          decimal
-          double
-          float
-          tuple
-          inet
-          int
-          list
-          map
-          set
-          text
-          timestamp
-          varchar
-          varint
+          ascii          bigint         blob
+          boolean        counter        decimal
+          double         float          tuple
+          inet           int            list
+          map            set            text
+          timestamp      varchar        varint
 
           Data Model
           ------------------------------------------------------------------
@@ -116,7 +106,6 @@ Cassandra
 
                 1. Does not support join, aggregates, grouping, or clause
                 2. miximized the data duplication.
-
 
                 CQL - Cassandra Query Language
                 ================================================================================================
@@ -180,12 +169,60 @@ Cassandra
 
                         TRUNCATE tableName;
 
-                        
+                  Writing Data Into Column Families / Tables
+                  ----------------------------------------------------------------------------------------
 
+                        INSERT INTO tableName(col1,col2,col2....)
+                        VALUES(v1,v2,v2....)
 
+                        UPDATE tableName
+                        SET colName=val,.......
+                        WHERE cond
 
-        
+                        DELETE FROM tableName WHERE cond
+
+                        DELETE colName FROM tableName WHERE cond
+
+                   Read Data Into Column Families / Tables
+                  ----------------------------------------------------------------------------------------
+
+                        SELECT * from tableName
+                        SELECT col1,col2,.. from tableName
+                        SELECT col1,col2,.. from tableName where cond
+
                 
+        Cassandra Collections
+        ----------------------------------------------------------------------------
+
+                Set             Non-Linear data structure
+                                Entry order is not preserved
+                                Sorted order is preserved
+                                No duplicates allowed
+                                {'ele1','ele2','ele3'}
+
+                List            Linear data structure
+                                Entry order is preserved
+                                duplicates allowed
+                                ['ele','el','ele']
+
+                Map             Key-value pair
+                                sorted on the key
+                                {'key':'val','key2':'val'}
+
+                   ALTER TABLE Books ADD authors set<text>
+                   ALTER TABLE Books ADD volums list<text>
+                   ALTER TABLE Books ADD vendor map<text,text>
+                
+        Cassandra Index
+        ----------------------------------------------------------------------------
+
+                create index indexName on tableName(colName);
+
+                //indexes cna not be created on collection cols.
+
+                drop index indexName
+
+
 
 
 
