@@ -1,0 +1,46 @@
+Cassandra	                                        RDBMS
+=================================================================================================
+Cassandra is used to deal with unstructured data.	RDBMS is used to deal with structured data.
+
+Cassandra has flexible schema.	                    RDBMS has fixed schema.
+
+a table is a list of "nested key-value pairs".      a table is an array of arrays.
+
+keyspace is the outermost container .	            database is the outermost container
+
+tables or column families are the entity            tables are the entities of a database.
+of a keyspace.
+
+row is a unit of replication.	                    row is an individual record.
+
+column is a unit of storage.	                    column represents the attributes of a relation.
+
+relationships are represented using collections.	there are concept of foreign keys, joins etc.
+
+
+RDBMS
+                EmpID        EmpName     Sal     Comm    ContactNumber
+    Row1        1            a            45                3456677
+    Row2        2            b                    56        6677667
+    Row3        3            c            55  
+    Row4        4            d            77  
+    Row5        4            e                              7778877
+
+Cassandra
+            Row1        EmpID           1
+                        EmpName         a
+                        Sal             45
+                        ContactNumber   3456677
+            Row2        EmpID           2
+                        EmpName         b
+                        Comm            56
+                        ContactNumber   6677667
+            Row3        EmpID           3
+                        EmpName         c
+                        Sal             55        
+            Row4        EmpID           4
+                        EmpName         d
+                        Sal             77
+            Row5        EmpID           5
+                        EmpName         e
+                        ContactNumber   7778877
